@@ -1,0 +1,35 @@
+@startuml
+entity team {
+* team_name VARCHAR(200) <PK>
+--
+*player_name VARCHAR(200) <FK>
+* coach_name VARCHAR(200) <FK>
+* stadium_name VARCHAR(200) <FK>
+
+}
+
+entity player {
+* player_name VARCHAR(200) <PK>
+--
+* player_nationality VARCHAR(200)
+* player_position VARCHAR(200)
+* team_name VARCHAR(100) <FK>
+}
+
+entity coach {
+* coach_name VARCHAR(200) <PK>
+--
+* coach_nationality VARCHAR(200)
+}
+
+entity stadium {
+* stadium_name VARCHAR(200) <PK>
+--
+* stadium_city VARCHAR(200)
+* stadium_capacity INT
+}
+
+team ||..|{ player
+team ||..|| coach
+team ||--|| stadium
+@enduml
